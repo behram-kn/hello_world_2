@@ -19,9 +19,9 @@ Template sync:
   - .specify/templates/agent-file-template.md: ✅ no changes needed
 Deferred TODOs:
   - TODO(RATIFICATION_DATE): Set when project formally adopts this constitution
-  - TODO(NEXTJS_VERSION): Confirm from package.json — file not yet present in repo
-  - TODO(REACT_VERSION): Confirm from package.json — file not yet present in repo
-  - TODO(TAILWIND_VERSION): Confirm from package.json — file not yet present in repo
+  - NEXTJS_VERSION resolved: 16.1.6
+  - REACT_VERSION resolved: 19.2.4
+  - TAILWIND_VERSION resolved: 4.2.1
 -->
 
 # Hello World 2 Constitution
@@ -92,9 +92,9 @@ All implementation MUST target these exact versions; upgrades require a constitu
 
 | Technology | Version |
 |------------|---------|
-| Next.js    | TODO(NEXTJS_VERSION): confirm from `package.json` once initialised |
-| React      | TODO(REACT_VERSION): confirm from `package.json` once initialised |
-| Tailwind CSS | TODO(TAILWIND_VERSION): confirm from `package.json` once initialised |
+| Next.js    | 16.1.6 |
+| React      | 19.2.4 |
+| Tailwind CSS | 4.2.1 |
 
 No framework, runtime, or CSS solution outside this table MAY be introduced without a
 constitution amendment.
