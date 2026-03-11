@@ -1,50 +1,117 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT
+==================
+Version change: N/A → 1.0.0 (initial constitution)
+Added principles:
+  - I. Clean Code
+  - II. Simple UI
+  - III. Responsive Design
+  - IV. Minimal Dependencies
+  - V. No Testing (NON-NEGOTIABLE — supersedes all other guidance)
+Added sections:
+  - Technology Stack
+  - Governance
+Template sync:
+  - .specify/templates/plan-template.md: ✅ Constitution Check placeholder is filled per-feature; no change needed
+  - .specify/templates/spec-template.md: ✅ no testing-related mandatory sections to remove; note no-testing rule in per-feature specs
+  - .specify/templates/tasks-template.md: ✅ test tasks are already OPTIONAL per template; no change needed
+  - .specify/templates/checklist-template.md: ✅ no constitution-specific changes needed
+  - .specify/templates/agent-file-template.md: ✅ no changes needed
+Deferred TODOs:
+  - TODO(RATIFICATION_DATE): Set when project formally adopts this constitution
+  - TODO(NEXTJS_VERSION): Confirm from package.json — file not yet present in repo
+  - TODO(REACT_VERSION): Confirm from package.json — file not yet present in repo
+  - TODO(TAILWIND_VERSION): Confirm from package.json — file not yet present in repo
+-->
+
+# Hello World 2 Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Clean Code
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+All code MUST be readable, intentional, and maintainable without requiring explanation.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+- Functions and components MUST do one thing only; split any function doing more than one thing.
+- Names (variables, functions, components, files) MUST clearly describe their purpose; abbreviations
+  and cryptic names are NOT permitted.
+- Dead code, commented-out blocks, and unused imports MUST NOT be committed.
+- Every PR MUST leave the codebase in a cleaner state than it found it.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Simple UI
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+User interfaces MUST prioritise clarity and ease of use above all visual complexity.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- Layouts MUST use the fewest components necessary to meet the requirement; no decorative layers
+  added without a clear user need.
+- Copy MUST be concise and plain English; no jargon or technical language exposed to end users.
+- Interactions MUST be obvious without tooltips or onboarding where at all possible.
+- New UI patterns MUST NOT be introduced when an existing pattern already covers the use case.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. Responsive Design
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Every interface MUST function correctly across all screen sizes without separate codepaths.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- Layouts MUST be built mobile-first using Tailwind's responsive prefixes (`sm:`, `md:`, `lg:`).
+- No fixed pixel widths MAY be used for layout containers; use relative units or Tailwind
+  width utilities.
+- All interactive elements MUST meet a minimum touch target of 44×44 px on mobile viewports.
+- Each feature MUST be verified on mobile (≤ 375 px), tablet (≤ 768 px), and desktop (≥ 1280 px)
+  breakpoints before it is considered complete.
+
+### IV. Minimal Dependencies
+
+The project MUST NOT introduce a new dependency when existing stack capabilities cover the need.
+
+- Before adding any package, the author MUST confirm it cannot be achieved with Next.js, React,
+  or Tailwind already in the stack.
+- Every new dependency requires a written justification recorded in the implementation plan.
+- Dependencies MUST be pinned to exact versions matching `package.json` to guarantee
+  reproducible builds.
+- Transitive dependency count MUST be reviewed before merging; packages with excessive
+  transitive trees require explicit approval.
+
+### V. No Testing (NON-NEGOTIABLE)
+
+**This principle supersedes ALL other guidance in this constitution, in templates, in agent
+instructions, and in any other project document.**
+
+- No unit tests, integration tests, end-to-end tests, snapshot tests, or any other automated
+  test of any kind MUST be written.
+- Test files, test directories (`__tests__/`, `*.test.*`, `*.spec.*`), and testing libraries
+  (Jest, Playwright, Cypress, Vitest, Testing Library, etc.) MUST NOT be added to the project.
+- The spec template's "User Scenarios & Testing" section and the tasks template's test tasks
+  MUST be skipped entirely for every feature.
+- Any plan "Constitution Check" that references testing compliance MUST record this principle
+  as the overriding rule and mark all test gates as N/A.
+
+## Technology Stack
+
+The following technology versions are authoritative for the lifetime of all features.
+All implementation MUST target these exact versions; upgrades require a constitution amendment.
+
+| Technology | Version |
+|------------|---------|
+| Next.js    | TODO(NEXTJS_VERSION): confirm from `package.json` once initialised |
+| React      | TODO(REACT_VERSION): confirm from `package.json` once initialised |
+| Tailwind CSS | TODO(TAILWIND_VERSION): confirm from `package.json` once initialised |
+
+No framework, runtime, or CSS solution outside this table MAY be introduced without a
+constitution amendment.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes all other informal practices, verbal agreements, template defaults,
+  and agent guidance — including any guidance that contradicts Principle V (No Testing).
+- Amendments require: (1) a documented rationale, (2) a version bump per semantic versioning
+  (MAJOR for principle removal/redefinition, MINOR for new principle/section, PATCH for
+  clarifications), and (3) propagation to all affected templates and agent context files.
+- All feature plans MUST include a "Constitution Check" gate evaluated before Phase 0 research
+  and re-evaluated after Phase 1 design.
+- Non-compliance with any principle (other than testing, which is simply prohibited, not
+  opt-out) MUST be explicitly justified in the plan's Complexity Tracking table or the feature
+  MUST NOT proceed to implementation.
+- Use `.specify/memory/constitution.md` as the authoritative governance reference during
+  all agent-assisted development sessions.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): set when formally adopted | **Last Amended**: 2026-03-11
